@@ -1,0 +1,42 @@
+<ion-view  >
+    <ion-nav-title style="text-align:center !important">
+    <span style="text-align:center !important">{{cat_name}} - {{sub_cat_name}}</span>
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+  <a class="button button-icon icon ion-bookmark bookmark" ng-click="bookmarkWords(word_to_bookmark)"></a>
+    <button class="button button-icon ion-android-share-alt" ng-click="shareAll(word_meaning,word_details,word_title,word_id)"></button>
+  </ion-nav-buttons>
+
+<ion-content id="news-feed-content has-header" style="margin-bottom:50px" >
+  <div ng-if="word_meaning">
+    
+      <h3 style="padding-left:10px;padding-right:10px;margin-top:20px">{{word_title}}</h3>
+      <hr/>
+        
+      <div style="padding-left:10px;padding-right:10px;margin-top:10px"> 
+
+       <b>Meaning:</b>{{word_meaning}}
+      </div>
+      <hr/>
+	<div style="padding-left:10px;padding-right:10px;margin-top:10px">
+
+		<b>Details: </b>{{word_details }} <br/>
+    <a href="#" style="text-decoration:none;float:right" > See More...</a>
+	</div>   
+  </div>
+  <!--  <div class="actions col col-center col-66">
+             <a class="button button-icon icon ion-bookmark bookmark" ng-click="bookmarkWords(word_to_bookmark)"></a>
+   </div> -->
+
+
+    
+</ion-content><!--end news feed section-->
+<div class="bar bar-footer"  style=" height:60px !important; border: none !important; padding:0px !important">
+    <ion-slide-box does-continue="true" auto-play="true" slide-interval="2000" show-pager="false" >
+        <ion-slide  ng-repeat="ad in all_ads">
+            <img ng-src="{{ad.image}}" class="ad_img" ng-click="gotoAd(ad.url)">
+        </ion-slide>
+    </ion-slide-box>
+  </div> 
+
+</ion-view >

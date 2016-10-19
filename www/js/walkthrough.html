@@ -1,0 +1,48 @@
+<!-- <ion-view class="walkthrough-view" cache-view="false">
+  <ion-content scroll="false">
+    <div class="top-content row">
+      <div class="col col-center">
+        <img ng-src="img/logo.png">
+      </div>
+    </div>
+    <div class="bottom-content row">
+      <div class="col col-center">
+        <a class="login button button-block button-stable" ui-sref="auth.login">
+          Log In
+        </a>
+        <a class="sign-up button button-block button-stable" ui-sref="auth.signup">
+          Sign Up
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view> -->
+<ion-view class="walkthrough-view" cache-view="false">
+
+
+  <ion-content style=" margin-bottom:100px">
+  <img src="img/logo.png" style="margin-top:20px">
+  <label class="item item-input" style="width:100%;margin-top:10px;margin-right:20px">
+            <i class="icon ion-search placeholder-icon" style="font-size:20px;margin-right:10px"></i>
+         
+            <input type="search" placeholder="Search" style="font-size:15px" data-ng-model="searchText">
+        
+  </label>
+    <div class="" ng-repeat="word in all_def_words| filter:searchText " ng-show="searchText">
+      <div class="" style="color:white" ng-click="get_all_def(word)" >
+       {{word}}
+      </div>
+    </div>
+   
+  </ion-content>
+  <div class="bar bar-footer"  style=" height:100px;background-color:transparent !important;margin-top:50px">
+      <div id="home_label">
+         <button class=" button icon-left button-positive ion-ios-browsers home1" ui-sref="app.search_cat" >By Category</button>
+         <button class=" button icon-left ion-ios-bookmarks button-positive home2" ui-sref="app.search_alpha" >By Alphabet</button>
+         <br/>
+         <br/>
+         <button class=" button icon-left ion-search button-positive home1"  ui-sref="app.search_all">Search All</button>
+         <button class=" button icon-left ion-person button-positive home2" ui-sref="app.profile" >My Account</button>
+
+    </div>
+</ion-view>

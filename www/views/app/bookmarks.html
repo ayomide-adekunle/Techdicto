@@ -1,0 +1,51 @@
+<ion-view class="bookmarks-view">
+  <ion-nav-title style="text-align:center !important">
+    <span style="text-align:center !important">Favourites</span>
+  </ion-nav-title>
+  <ion-content>
+    <div ng-if="(bookmarks.wordpress.length == 0 && bookmarks.feeds.length == 0 && bookmarks.saved_words==0)" class="row bookmarks-container">
+      <div class="col col-center">
+        <div class="empty-results">
+          <i class="icon ion-bookmark"></i>
+          <h3 class="no-bookmarks">There's nothing here yet. Start exploring!</h3>
+        </div>
+      </div>
+    </div>
+    <ul ng-if="(bookmarks.wordpress.length > 0 || bookmarks.feeds.length > 0 || bookmarks.saved_words.length > 0)" class="bookmarks-list">
+      <div ng-if="bookmarks.saved_words.length > 0" class="item item-divider">
+        Bookmarked Words
+      </div>
+      <li class="bookmark-item" ng-repeat="bookmark in bookmarks.saved_words">
+        <a ng-click="bookmarkMeaning(bookmark.keyword,bookmark.meaning,bookmark.details)">
+          <h2 class="post-title" ng-bind-html="bookmark.keyword"></h2>
+        </a>
+      </li>
+
+      <div ng-if="bookmarks.feeds.length > 0" class="item item-divider">
+        Feeds Bookmarks
+      </div>
+      <li class="bookmark-item" ng-repeat="bookmark in bookmarks.feeds">
+        <a ng-click=goToFeedPost(bookmark.link)>
+          <h2 class="post-title" ng-bind-html="bookmark.title | rawHtml"></h2>
+          <p class="post-date">Posted <span class="post-time" am-time-ago="bookmark.date"></span></p>
+        </a>
+      </li>
+      <div ng-if="bookmarks.wordpress.length > 0" class="item item-divider">
+        Wordpress bookmarks
+      </div>
+      <li class="bookmark-item" ng-repeat="bookmark in bookmarks.wordpress">
+        <a ng-click=goToWordpressPost(bookmark.id)>
+          <h2 class="post-title" ng-bind-html="bookmark.title | rawHtml"></h2>
+          <p class="post-date">Posted <span class="post-time" am-time-ago="bookmark.date"></span></p>
+        </a>
+      </li>
+    </ul>
+  </ion-content>
+  <div class="bar bar-footer"  style=" height:60px !important; border: none !important; padding:0px !important">
+    <ion-slide-box does-continue="true" auto-play="true" slide-interval="2000" show-pager="false">
+    <ion-slide ng-repeat="ad in all_ads" ng-click="gotoAd(ad.url)">
+        <img ng-src="{{ad.image}}" class="ad_img">
+    </ion-slide>
+    </ion-slide-box>
+  </div>
+</ion-view>

@@ -1,0 +1,30 @@
+<ion-modal-view style="width: 80%; height: 80%; min-height: 0; max-height: 330px; top: 20%; left: 10%; right: 10%; bottom: 20%;">
+  <ion-content >
+    <div class="row text-center theme_color">
+      <div style="height:30px">
+      </div>
+    </div>
+    <div class="buttons new_word" >
+      <i class="icon ion-android-close subdued new_word_ic" ng-click="hideModal()"></i>
+    </div>
+    <form ng-submit="suggestWord(wordData)">
+      <div >
+        <label class="item item-input item-stacked-label">
+          <input type="text" ng-model="wordData.title" placeholder="Enter the word">
+          <p style="font-size:10px"> Ex. Monitor </p>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <input name="" id=""  ng-model="wordData.meaning" placeholder="Meaning of Word" ></input>
+          <p style="font-size:10px"> Ex. It is a display device</p>
+        </label>
+        <label class="item item-input item-stacked-label">
+          <input name="" id=""  ng-model="wordData.details" placeholder="More Details" ></input>
+          <p style="font-size:10px"> Ex. It displays computer information</p>
+        </label>
+        <label class="item btn ">
+          <button class="button button-block button-balanced theme_color" style="color:#fff !important"  ng-click="hideModal()">Add New Word</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

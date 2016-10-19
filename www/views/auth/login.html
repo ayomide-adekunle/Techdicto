@@ -1,0 +1,62 @@
+<ion-view class="login-view auth-view" cache-view="false">
+  <ion-content scroll="false">
+    <div class="row">
+      <div class="col col-center">
+        <div class="card login-container" content-tabs tabsdata='tabsdata'>
+          <form name="login_form" class="" novalidate ng-cloak >
+            <my-tabs>
+              <my-tab title="Signin">
+                <div class="list">
+                  <label class="item item-input">
+                    <input type="email" placeholder="Email" name="user_email_signin" ng-model="user.email_signin" required>
+                  </label>
+                  <label class="item item-input" show-hide-container>
+                    <input type="password" placeholder="Password" name="user_password_signin" ng-model="user.password_signin" required show-hide-input>
+                  </label>
+                </div>
+                <button type="submit" class="button button-positive button-blok" ng-click="doLogIn(user)" ng-disabled="(selected_tab=='Signin') ? (login_form.user_email_signin.$invalid || login_form.user_password_signin.$invalid) : ((selected_tab=='Signup') ? (login_form.user_email_signup.$invalid || login_form.user_password_signup.$invalid || login_form.user.username_signup.$invalid) : false)">
+                Sign In
+              </button>
+              </my-tab>
+              <my-tab title="Signup">
+                <div class="list">
+                  <label class="item item-input">
+                    <input type="email" placeholder="Email" name="user_email_signup" ng-model="user.email_signup" required>
+                  </label>
+                  <label class="item item-input">
+                    <input type="text" placeholder="Username" name="username_signup" ng-model="user.username_signup" required>
+                  </label>
+                  <label class="item item-input" show-hide-container>
+                    <input type="password" placeholder="Password" name="user_password_signup" ng-model="user.password_signup" required  show-hide-input>
+                  </label>
+                </div>
+                <button type="submit" class="button button-positive button-blok" ng-click="doLogIn(user)" ng-disabled="(selected_tab=='Signin') ? (login_form.user_email_signin.$invalid || login_form.user_password_signin.$invalid) : ((selected_tab=='Signup') ? (login_form.user_email_signup.$invalid || login_form.user_password_signup.$invalid || login_form.user.username_signup.$invalid) : false)">
+                Sign Up
+              </button>
+              </my-tab>
+            </my-tabs>
+            <!-- <div class="item item-body bottom-content">
+              <button type="submit" class="button button-positive button-blok" ng-click="doLogIn(user)" ng-disabled="(selected_tab=='Signin') ? (login_form.user_email_signin.$invalid || login_form.user_password_signin.$invalid) : ((selected_tab=='Signup') ? (login_form.user_email_signup.$invalid || login_form.user_password_signup.$invalid || login_form.user.username_signup.$invalid) : false)">
+                Submit
+              </button>
+            </div> -->
+          </form>
+        </div>
+        <div class="alternative-actions">
+         <!--  <a class="forgot-password button button-small button-clear button-light" ui-sref="auth.forgot-password">
+            Forgot Password?
+          </a> -->
+
+          <button class="button button-full button-positive" ui-sref="auth.walkthrough" >
+            Home
+            </button>
+        </div>
+        <div  style="text-align: center; margin-top:20px"  ng-show="loading">
+           <ion-spinner icon="android"></ion-spinner>
+        </div>
+      </div>
+
+    </div>
+
+  </ion-content>
+</ion-view>

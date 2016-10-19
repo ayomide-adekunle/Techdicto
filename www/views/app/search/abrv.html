@@ -1,0 +1,43 @@
+<ion-view  >
+<ion-nav-title style="text-align:center !important">
+    <span style="text-align:center !important">Abbreviations</span>
+  </ion-nav-title>
+<ion-nav-buttons side="right">
+    <button class="button button-icon ion-ios-plus-outline" ng-click="showModal('zoomInRight',1)"></button>
+  </ion-nav-buttons>
+  <ion-content style="margin-bottom:50px">
+  <label class="item item-input" style="width:100%;">
+            <i class="icon ion-search placeholder-icon" style="font-size:20px;margin-right:10px"></i>
+         
+            <input type="search" placeholder="Search" style="font-size:15px" ng-model="searchText">
+        
+  </label>
+
+  <div ng-if="abrv_words.length==0" style="text-align: center; margin: 200px 0px;">
+         <ion-spinner icon="android"></ion-spinner>
+         <p> <span>Loading all words...</span> </p>
+  </div>
+      
+    <ion-list ng-if="abrv_words.length>0" ng-repeat="word in abrv_words | filter:searchText" style="position:relative !important" >
+      <ion-item class="item-remove-animate  item-icon-right"  type="item-text-wrap" ng-click="terms_words_def(formatTitle(word))"  >
+        <h2>{{formatTitle(word)}}</h2>
+        <h4>{{formatMeaning(word)}}</h4>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+        
+      </ion-item>
+      
+    </ion-list>
+  
+ 
+  </ion-content>
+ <!-- <a  class="md-button md-accent md-fab fab-toolbar-medium " id="button1" ng-click="showModal('zoomInRight',1)">
+    <i class="ion-plus"></i>  
+  </a> --><!--end button section -->
+  <div class="bar bar-footer"  style=" height:60px !important; border: none !important; padding:0px !important;">
+      <ion-slide-box does-continue="true" auto-play="true" slide-interval="2000" show-pager="false" >
+          <ion-slide  ng-repeat="ad in all_ads">
+              <img ng-src="{{ad.image}}" class="ad_img" ng-click="gotoAd(ad.url)">
+          </ion-slide>
+      </ion-slide-box>
+  </div> 
+</ion-view>

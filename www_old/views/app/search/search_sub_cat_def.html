@@ -1,0 +1,36 @@
+<ion-view view-title="{{cat_name}} - {{sub_cat_name}}">
+    
+  <ion-nav-buttons side="right">
+    <button class="button button-icon ion-android-share-alt" ng-click="shareAll(word_meaning,word_details,word_title,word_id)"></button>
+  </ion-nav-buttons>
+
+<ion-content id="news-feed-content has-header" style="margin-bottom:50px" >
+  <div ng-if="word_meaning">
+    
+      <h3 style="text-align:center;margin-top:20px">{{word_title}}</h3>
+        
+      <div style="padding-left:10px;padding-right:10px;margin-top:10px"> 
+
+       <b>Meaning:</b>{{word_meaning}}
+      </div>
+	<div style="padding-left:10px;padding-right:10px;margin-top:10px">
+
+		<b>Details: </b>{{word_details }}
+	</div>   
+  </div>
+   <div class="actions col col-center col-66">
+             <a class="button button-icon icon ion-bookmark bookmark" ng-click="bookmarkWords(word_to_bookmark)"></a>
+   </div>
+
+
+    
+</ion-content><!--end news feed section-->
+<div class="bar bar-footer"  style=" height:60px !important; border: none !important; padding:0px !important">
+    <ion-slide-box does-continue="true" auto-play="true" slide-interval="2000" show-pager="false">
+    <ion-slide ng-repeat="ad in all_ads" ng-click="gotoAd(ad.url)">
+        <img ng-src="{{ad.image}}" class="ad_img">
+    </ion-slide>
+    </ion-slide-box>
+  </div> 
+
+</ion-view >

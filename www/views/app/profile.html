@@ -1,0 +1,49 @@
+<ion-view class="profile-view " cache-view="false">
+  <ion-nav-title>
+    <span>Profile</span>
+  </ion-nav-title>
+  <ion-content>
+  <div>
+      <div class="top-content row" >
+      <div class="profile-container">
+        <div class="user-image-container">
+          <pre-img ratio="_1_1" helper-class="rounded-image">
+            <img class="user-image" ng-src="img/profile.jpeg" spinner-on-load>
+          </pre-img>
+        </div>
+        <div class="user-name">{{login.username}}</div>
+        <div class="user-twitter">{{login.email}}</div>
+      </div>
+      <div class="user-background-image-outer">
+        <div multi-bg="['img/profile.jpeg']"></div>
+      </div>
+    </div>
+    <div class="bottom-content">
+      <div class="user-bio">
+        <p> You are now a registered member, enjoy unlimited words!</p>
+      </div>
+    </div>
+  </div>
+  </ion-content>
+</ion-view>
+
+
+<!-- <ion-view class="walkthrough-view" cache-view="false">
+  <ion-content scroll="false">
+    <div class="top-content row">
+      <div class="col col-center">
+        <img ng-src="img/logo.png">
+      </div>
+    </div>
+    <div class="bottom-content row">
+      <div class="col col-center">
+        <a class="login button button-block button-stable" ui-sref="auth.login">
+          Log In
+        </a>
+        <a class="sign-up button button-block button-stable" ui-sref="auth.signup">
+          Sign Up
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view> -->

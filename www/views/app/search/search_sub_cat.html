@@ -1,0 +1,27 @@
+<ion-view  >
+<ion-nav-title style="text-align:center !important">
+    <span style="text-align:center !important">{{cat_name}}</span>
+  </ion-nav-title>
+  <ion-content style="margin-bottom:50px">
+  
+    <div ng-if="sub_category.length==0" style="text-align: center; margin: 200px 0px;">
+         <ion-spinner icon="android"></ion-spinner>
+         <p> <span>Loading ...</span> </p>
+      </div>
+    <ion-list ng-if="sub_category.length>0" ng-repeat="sub_cat in sub_category">
+      <ion-item class="item-remove-animate  item-icon-right"  type="item-text-wrap" ng-click="WordList(sub_cat.name)" >
+        <h2>{{sub_cat.name}}</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      
+      
+    </ion-list>
+  </ion-content>
+  <div class="bar bar-footer"  style=" height:60px !important; border: none !important; padding:0px !important">
+    <ion-slide-box does-continue="true" auto-play="true" slide-interval="2000" show-pager="false" >
+      <ion-slide  ng-repeat="ad in all_ads">
+        <img ng-src="{{ad.image}}" class="ad_img" ng-click="gotoAd(ad.url)">
+      </ion-slide>
+    </ion-slide-box>
+  </div> 
+</ion-view>

@@ -1,0 +1,117 @@
+<!-- <ion-view class="walkthrough-view" cache-view="false">
+  <ion-content scroll="false">
+    <div class="top-content row">
+      <div class="col col-center">
+        <img ng-src="img/logo.png">
+      </div>
+    </div>
+    <div class="bottom-content row">
+      <div class="col col-center">
+        <a class="login button button-block button-stable" ui-sref="auth.login">
+          Log In
+        </a>
+        <a class="sign-up button button-block button-stable" ui-sref="auth.signup">
+          Sign Up
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view> -->
+<ion-view class="walkthrough-view" cache-view="false" view-title="TechDicto">
+<!-- <ion-nav-buttons side="right">
+    <div style="color: #fff;font-size: 17px;margin-top: 5px;" ui-sref="app.profile">Sign in </div>
+  </ion-nav-buttons> -->
+  <ion-content scroll="false">
+    <div class="row" style="padding-top: 20px">
+      <div class="col col-center">
+        <img ng-src="img/logo.png" style="width: 140px">
+      </div>
+      <span ui-sref="app.profile" style="color: #fff;font-size: 17px;margin-top: 10px;"> Sign in</span>
+    </div>
+
+      <div class="row">
+          <label class="item item-input" style="width:100%;">
+              <i class="icon ion-search placeholder-icon" style="font-size:20px;margin-right:10px"></i>
+
+              <input type="search" placeholder="Search" style="font-size:15px" ng-model="searchText" ng-focus="hideCard()">
+
+          </label>
+      </div>
+      <div class="row">
+          <div class="">
+              <p class="" ng-repeat="word in all_def_words| filter:searchText " ng-show="searchText" style="margin:2px 2px !important; min-width: 100% !important;" >
+                  <span style="color:#FFF !important;" ng-click="get_all_def(word)">{{word}} <i class="icon ion-chevron-right icon-accessory" style="color: #fff; margin-left: 10px !important;  min-width: 100% !important;"></i></span>
+              </p>
+          </div>
+          <!--<ion-list>-->
+              <!--<ion-item ng-repeat="word in all_def_words | filter:searchText" ng-show="searchText"  class="item-remove-animate  item-icon-right"  type="item-text-wrap"   >-->
+                  <!--<h2 ng-click="get_all_def(word)">{{word}}</h2>-->
+                  <!--<i class="icon ion-chevron-right icon-accessory"></i>-->
+              <!--</ion-item>-->
+          <!--</ion-list>-->
+      </div>
+      <!--<div class="row" style="padding-top: 200px">-->
+          <!--<div  id="home_label">-->
+              <!--<button class=" button icon-left button-positive ion-ios-browsers" ui-sref="app.search_cat" >By Category</button>-->
+              <!--<button class=" button icon-left ion-ios-bookmarks button-positive" ui-sref="app.search_alpha" >By Alphabet</button>-->
+              <!--<br/>-->
+              <!--<br/>-->
+              <!--<button class=" button icon-left ion-search button-positive"  ui-sref="app.search_all">Search All</button>-->
+              <!--<button class=" button icon-left ion-person button-positive" ui-sref="app.profile" >My Account</button>-->
+              <!--<br/>-->
+              <!--<br/>-->
+              <!--<button class=" button icon-left ion-search button-positive"  ui-sref="app.search_all">Acronyms</button>-->
+              <!--<button class=" button icon-left ion-person button-positive" ui-sref="app.profile" >Terminologies</button>-->
+
+          <!--</div>-->
+      <!--</div>-->
+      
+
+
+  </ion-content>
+    <div class="tabs" style="height:auto; background: none !important;" ng-show="showTab">
+
+        <div class="row">
+            <div class="col">
+                <div class="list newButton" style="opacity: 1;margin-left: -10px;margin-right: -10px;margin-bottom: -10px;">
+                    <div class="button-bar">
+                      <a class="button home_text"  ui-sref="app.search_all" _all>Dictionary</a>
+                      <a class="button home_text" ui-sref="app.acronyms">Acronyms</a>
+                      <a class="button home_text" ui-sref="app.abrv">Abbreviations</a>
+                       <a class="button home_text" ui-sref="app.terms">Terminogies</a>
+                    </div>
+                    <!-- <a class="item item-icon-left" ui-sref="app.profile"  style="border: none !important; padding-top: 0px; padding-bottom: 0px; background: #0c60ee; color: #fff">
+                        <i class="icon ion-ios-people" style="color: #fff"></i>
+                        Sign Up / Sign In
+                    </a>
+
+                    <a class="item item-icon-left " ui-sref="app.search_cat"  style="padding-top: 0px; padding-bottom: 0px">
+                        <i class="icon ion-outlet" style="color: #0c60ee"> </i>
+                        Categories
+                    </a>
+
+                    <a class="item item-icon-left" ui-sref="app.acronyms" style="padding-top: 0px; padding-bottom: 0px">
+                        <i class="icon ion-code-working" style="color: #0c60ee"></i>
+                        Acronyms
+                        <span class="item-note">
+
+                        </span>
+                    </a>
+
+                    <a class="item item-icon-left" ui-sref="app.terms" style="padding-top: 0px; padding-bottom: 0px">
+                        <i class="icon ion-ios-book" style="color: #0c60ee"></i>
+                        Terminologies
+                    </a> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tabs" style="height:auto; background: none !important;"  ng-show="showEnter">
+        <div class="row">
+            <button class="button button-full button-positive" ui-sref="app.search_alpha" >
+                ENTER APP
+            </button>
+        </div>
+    </div>
+</ion-view>

@@ -1,0 +1,25 @@
+<ion-view view-title="Category">
+
+  
+  <ion-content style="margin-bottom:50px">
+    <div ng-if="!all_cagetories" style="text-align: center; margin: 200px 0px;">
+         <ion-spinner icon="android"></ion-spinner>
+         <p> <span>Loading ...</span> </p>
+      </div>
+    <ion-list ng-if="all_cagetories" ng-repeat="category in all_cagetories">
+      <ion-item class="item-remove-animate  item-icon-right"  type="item-text-wrap" ng-click="SubCategory(category.name)" >
+        <h2>{{category.name}}</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      
+      
+    </ion-list>
+  </ion-content>
+  <div class="bar bar-footer"  style=" height:60px !important; border: none !important; padding:0px !important">
+    <ion-slide-box does-continue="true" auto-play="true" slide-interval="2000" show-pager="false">
+    <ion-slide ng-repeat="ad in all_ads" ng-click="gotoAd(ad.url)">
+        <img ng-src="{{ad.image}}" class="ad_img">
+    </ion-slide>
+    </ion-slide-box>
+  </div> 
+</ion-view>

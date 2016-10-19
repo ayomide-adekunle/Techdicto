@@ -1,0 +1,37 @@
+<ion-view view-title="Alphabet">
+  <ion-content style="margin-bottom:50px">
+  <label class="item " >
+            
+            <select  style="width:100%" ng-model="searchText">
+              <option value='' >Select an alphabet</option>
+              <option  ng-repeat="alpha in alphabets" value={{alpha}}>{{alpha}}</option>
+            </select>
+        
+  </label>
+
+  <div ng-if="!all_words" style="text-align: center; margin: 200px 0px;">
+         <ion-spinner icon="android"></ion-spinner>
+         <p> <span>Loading all words...</span> </p>
+  </div>
+      
+    <ion-list ng-if="alpha_words.length>0" ng-repeat="word in alpha_words|filter:searchText:get_by_alpha" >
+      <ion-item class="item-remove-animate  item-icon-right"  type="item-text-wrap" ng-click="alpha_def('By Alphabet',word)"  >
+        <h2>{{word}}</h2>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+      
+    </ion-list>
+
+  </ion-content>
+  <a  class="md-button md-accent md-fab fab-toolbar-medium" id="button1" ng-click="showModal('zoomInRight',1)">
+    <i class="ion-plus"></i>  
+  </a><!--end button section-->
+  <br/>
+  <div class="bar bar-footer"  style=" height:60px !important; border: none !important; padding:0px !important">
+    <ion-slide-box does-continue="true" auto-play="true" slide-interval="2000" show-pager="false">
+    <ion-slide ng-repeat="ad in all_ads" ng-click="gotoAd(ad.url)">
+        <img ng-src="{{ad.image}}" class="ad_img">
+    </ion-slide>
+    </ion-slide-box>
+  </div> 
+</ion-view>
